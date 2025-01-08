@@ -19,4 +19,4 @@ jobs:
         server: access1003390817.webspace-data.io  # Replace with your server
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: C:\Users\Admin\source\repos\SameerDev\
+        local-dir: 
