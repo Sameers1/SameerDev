@@ -22,7 +22,9 @@ jobs:
         local-dir: ./ # Add your local folder if needed
 
     - name: Send Discord Notification
-      uses: rtCamp/action-discord-webhook@v2
-      with:
-        webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
-        message: "Deployment to Live server completed successfully!"
+      env:
+        DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+      run: |
+        curl -H "Content-Type: application/json" \
+             -d '{"content": "Deployment to Live server completed successfully!"}' \
+             $DISCORD_WEBHOOK_URL
