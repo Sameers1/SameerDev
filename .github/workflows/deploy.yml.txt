@@ -1,0 +1,22 @@
+name: Deploy Website
+
+on:
+  push:
+    branches:
+      - Live  # Change to your branch name if different
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Deploy to FTP Server
+      uses: SamKirkland/FTP-Deploy-Action@4.4.0
+      with:
+        server: access1003390817.webspace-data.io  # Replace with your server
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: C:\Users\Admin\source\repos\SameerDev\SameerDevpo
