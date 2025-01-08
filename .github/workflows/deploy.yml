@@ -3,7 +3,7 @@ name: Deploy Website
 on:
   push:
     branches:
-      - Live  # Change to your branch name if different
+      - Live  
 
 jobs:
   deploy:
@@ -16,7 +16,13 @@ jobs:
     - name: Deploy to FTP Server
       uses: SamKirkland/FTP-Deploy-Action@v4.3.0
       with:
-        server: access1003390817.webspace-data.io  # Replace with your server
+        server: ftp://access1003390817.webspace-data.io
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: 
+        local-dir: ./ 
+
+    - name: Send Discord Notification
+      uses: rtCamp/action-discord-webhook@v2
+      with:
+        webhook_url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        message: "Deployment to Live server completed successfully!"
