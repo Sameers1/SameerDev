@@ -16,10 +16,10 @@ jobs:
     - name: Deploy to FTP Server
       uses: SamKirkland/FTP-Deploy-Action@v4.3.0
       with:
-        server: ftp://access1003390817.webspace-data.io
+        server: access1003390817.webspace-data.io
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./ 
+        local-dir: ./ # Add your local folder if needed
 
     - name: Send Discord Notification
       uses: rtCamp/action-discord-webhook@v2
