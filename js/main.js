@@ -66,6 +66,15 @@
     }, '-=800');
 
 
+    const projectLink = document.querySelector('.project-link');
+
+    // Set an interval to create the breathing effect
+    setInterval(() => {
+        // Toggle the 'breathe' class every 3 seconds
+        projectLink.classList.toggle('breathe');
+    }, 3000); // Toggle every 3 seconds
+
+
 
    /* Preloader
     * -------------------------------------------------- */
